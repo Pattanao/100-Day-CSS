@@ -1,0 +1,145 @@
+.frame {
+  --background-color: #272C34;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  background: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+.view {
+  --background-color: #7BDBF7;
+  --sun-color: #FFEF00;
+  --mount-reflex-color: #EFEFEF;
+  --mount-shadow-color: #CDCED0;
+  --mount-shadower-color: #8e9196;
+  --sand-light: #F0DE75;
+  --sand-shadow: #C0B25E;
+  position: absolute;
+  inset: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--background-color);
+  overflow: hidden;
+  animation: view-show 4s ease-out infinite;
+}
+.view .sun {
+  position: absolute;
+  top: 135px;
+  left: 90px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--sun-color);
+  animation: sun-move 4s infinite;
+}
+.view .mount {
+  position: absolute;
+  display: flex;
+  top: 80px;
+  left: 42px;
+  width: 120px;
+  height: 60px;
+}
+.view .mount .mount-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mount-reflex-color);
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  animation: shadow-front-mount-move 4s infinite;
+}
+.view .mount .mount-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mount-shadow-color);
+  clip-path: polygon(60% 100%, 50% 0%, 100% 100%);
+  animation: shadow-side-mount-move 4s infinite;
+}
+.view .sandbg {
+  position: absolute;
+  top: 140px;
+  left: -20px;
+  width: 240px;
+  height: 100px;
+  background-color: var(--sand-shadow);
+}
+.view .sandbg .sand {
+  position: absolute;
+  top: 1px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--sand-light);
+}
+.view .sandbg .sand .mount-shadow {
+  position: absolute;
+  width: 240px;
+  height: 35px;
+  background-color: var(--sand-shadow);
+  animation: shadow-sand-mount-move 4s ease-in-out infinite;
+}
+@keyframes sun-move {
+  0% {
+    transform: rotate(-60deg) translateY(-130px);
+  }
+  30% {
+    transform: rotate(-30deg) translateY(-130px);
+  }
+  100% {
+    transform: rotate(60deg) translateY(-130px);
+  }
+}
+@keyframes shadow-sand-mount-move {
+  0% {
+    clip-path: polygon(76% 0%, 100% 0%, 26% 0%);
+  }
+  30% {
+    clip-path: polygon(76% 0%, 100% 100%, 26% 0%);
+  }
+  100% {
+    clip-path: polygon(76% 0%, 0% 100%, 26% 0%);
+  }
+}
+@keyframes shadow-front-mount-move {
+  0% {
+    background-color: var(--mount-reflex-color);
+  }
+  100% {
+    background-color: var(--mount-shadow-color);
+  }
+}
+@keyframes shadow-side-mount-move {
+  0% {
+    background-color: var(--mount-shadower-color);
+  }
+  30% {
+    background-color: var(--mount-shadow-color);
+  }
+  100% {
+    background-color: var(--mount-reflex-color);
+  }
+}
+@keyframes view-show {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
